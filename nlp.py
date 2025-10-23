@@ -122,3 +122,43 @@
 
 # tokens = sent_tokenize(text)
 # print(f"word Tokens: {tokens}")
+
+#Bag of words
+# from sklearn.feature_extraction.text import CountVectorizer
+# spam emails
+# corpus = [
+#     "Congratulations! You've won a free lottery ticket. Click here to claim your prize.",
+#     "Dear user, your account has been compromised. Please reset your password immediately.",
+#     "Limited time offer! Buy one get one free on all products. Don't miss out!",
+#     "Hello friend, just wanted to check in and see how you're doing.",
+#     "Reminder: Your appointment is scheduled for tomorrow at 10 AM."
+# ]
+# labels = ['spam','ham','spam','ham','ham']
+# create the bag of words model
+# vectorizer = CountVectorizer()
+# bow_matrix = vectorizer.fit_transform(corpus)
+# print('=='*40)
+# print(f"vocabulary: {vectorizer.get_feature_names_out()}")
+# print('=='*40)
+# print('\nBag of words matrix for each email:\n', bow_matrix.toarray())
+# print('=='*40)
+
+# tf-idf
+from sklearn.feature_extraction.text import TfidfVectorizer
+import pandas as pd
+
+documents = ["the cat sat on the mat",
+             "the dog sat on the log",
+             "cats and dogs are animals"]
+
+# matrix creation is our goal
+tfidf_vectorizer = TfidfVectorizer()
+tfidf_matrix = tfidf_vectorizer.fit_transform(documents)
+
+df = pd.DataFrame(tfidf_matrix.toarray(),
+                  columns = tfidf_vectorizer.get_feature_names_out(),
+                  index = ['Doc1','Doc2','Doc3'])
+print(df.round(2))
+
+# print(f"doc: {tfidf_vectorizer.get_feature_names_out()}")
+# print('tfdif :\n', tfidf_matrix.toarray())
