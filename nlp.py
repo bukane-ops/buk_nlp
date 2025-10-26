@@ -160,5 +160,9 @@ df = pd.DataFrame(tfidf_matrix.toarray(),
                   index = ['Doc1','Doc2','Doc3'])
 print(df.round(2))
 
+# multivariant
+
 # print(f"doc: {tfidf_vectorizer.get_feature_names_out()}")
 # print('tfdif :\n', tfidf_matrix.toarray())
+
+# https://docs.google.com/presentation/d/1yRGh4CAE3BEI27MpEGEMMEJ7XgOl25I4LtnsW-W3qCY/edit?usp=sharing
